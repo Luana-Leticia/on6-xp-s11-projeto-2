@@ -1,14 +1,20 @@
 const express = require('express');
 const router = express.Router();
+const controller = require('../controllers/maravilhosas-controller');
 
-//get /maravilhosas
+// fazer a documentação
+router.get('/maravilhosas', controller.getMaravilhosas);
 
-//post /maravilhosas
+// fazer a documentação
+router.get('/maravilhosas/:id', controller.getMaravilhosaById);
 
-//get /maravilhosas/id
+// fazer a documentação
+router.post('/maravilhosas', controller.addMaravilhosa)
 
-//put /maravilhosas/id
+// fazer a documentação
+router.put('/maravilhosas/:id', controller.updateMaravilhosa)
 
-//delete /maravilhosas/id
+// fazer a documentação
+router.delete('/maravilhosas/:id', controller.deleteMaravilhosa)
 
 module.exports = router;
