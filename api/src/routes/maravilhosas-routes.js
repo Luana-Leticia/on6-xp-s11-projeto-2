@@ -2,19 +2,37 @@ const express = require('express');
 const router = express.Router();
 const controller = require('../controllers/maravilhosas-controller');
 
-// fazer a documentação
+//@route GET maravilhosas
+//@desc Retornar todas as maravilhosas
+//@access Public
+//@endpoint http://localhost:porta/maravilhosas
 router.get('/maravilhosas', controller.getMaravilhosas);
 
-// fazer a documentação
+//@route GET maravilhosas
+//@desc Retornar apenas uma única maravilhosa pelo id : identificador
+//@params :id
+//@access Public
+//@endpoint http://localhost:porta/maravilhosas/:id
 router.get('/maravilhosas/:id', controller.getMaravilhosaById);
 
-// fazer a documentação
+//@route POST maravilhosa
+//@desc Criar uma maravilhosa
+//@access Public
+//@endpoint http://localhost:porta/maravilhosas
 router.post('/maravilhosas', controller.addMaravilhosa)
 
-// fazer a documentação
+//@route PUT maravilhosa
+//@desc Atualizar uma maravilhosa pelo id: identificador
+//@params :id
+//@access Public
+//@endpoint http://localhost:porta/maravilhosas/:id
 router.put('/maravilhosas/:id', controller.updateMaravilhosa)
 
-// fazer a documentação
+//@route DELETE maravilhosa
+//@desc Deletar apenas uma única maravilhosa pelo id : identificador
+//@params :id
+//access Public
+//@endpoint http://localhost:porta/maravilhosas/:id
 router.delete('/maravilhosas/:id', controller.deleteMaravilhosa)
 
 module.exports = router;

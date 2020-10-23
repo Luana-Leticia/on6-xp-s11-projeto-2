@@ -1,19 +1,16 @@
 let data = require('../data/data.json');
 
-// selectAllData
 const selectAllData = () => data;
 
-//selectDataById
 const selectDataById = (id) => data.find(item => item.id === id);
 
-//insertData
 const insertData = (newData) => {
     const { name, photo, subtitle, about, phrase, history } = newData
 
     const existName = data.find(data => data.name == name)
+    const isAllFieldsFilled = name && photo && subtitle && about && phrase && history
 
-    if (name && photo && subtitle && about && phrase && history) {
-        
+    if (isAllFieldsFilled) {        
 
         if(!existName) {
 
@@ -32,8 +29,9 @@ const insertData = (newData) => {
             data.push(addedData)
 
             return addedData 
+            
         } else {
-            //terminar
+            return 'Maravilhosa já existe no banco de dados!'
         }
               
     }
@@ -50,7 +48,6 @@ const updateData = (updatedData, id) => {
     
 } 
 
-//deleteData
 const deleteData = (id) => {
     const dataToDelete = data.find(item => item.id === id)
     if (dataToDelete) {

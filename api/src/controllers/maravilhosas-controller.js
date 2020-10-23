@@ -15,13 +15,17 @@ const getMaravilhosaById = (request, response) => {
     }
 }
 
-//addMaravilhosa 
 const addMaravilhosa = (request, response) => {
     const newData = request.body
 
     const addedData = model.insertData(newData)
     if(addedData){
-        response.status(201).json(addedData)
+        if (typeof addedData == string) {
+            const dataAlreadyExist = addedData
+            response.status(208).json({ mensagem: dataAlreadyExist})
+        } else {
+            response.status(201).json(addedData)
+        }        
     } else {
         response.status(206).json({ mensagem: 'Algum campo não foi preenchido corretamente'})
     }
